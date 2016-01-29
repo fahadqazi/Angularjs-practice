@@ -11,10 +11,11 @@
   		<p>one plus one</p>{{1+1}}
   	</div>
 
-  	<div class="container" ng-init="names=['Dave','Napur','Heedy','Shriva']">
+  	<div class="container" ng-init="names=['dave','napur','heedy','Shriva']">
 		<h2>Looping with the ng-repeat Directive</h2>
 		<ul>
-			<li ng-repeat="name in names">{{ name }}</li>
+      <li ng-repeat="name in names">{{ name | uppercase}}</li>
+			<!-- <li ng-repeat="name in names | orderBy:'name'">{{ name }}</li> -->
 		</ul>
 
 	</div>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <title>My Angular App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  	</head>
+  	<body>
+
+  	<div class="container" ng-init="customers=[
+    {name:'dave',city:'London'},
+    {name:'john', city:'Paris'}, 
+    {name:'elvis', city:'graceland'},
+    {name:'John linker', city:'west ham'},
+    {name:'john doe', city:'leighton buzzard'}
+    ]">    
+      <input type="text" ng-model="nameText" />
+
+      <ul>
+        <li ng-repeat="cust in customers | filter:nameText | orderBy:'city'">
+          {{cust.name | lowercase}} - {{cust.city | uppercase}}</li>
+      </ul> 
+    </div>
+
+    you made {{5 | currency}}
+
+
+	</div>
+  	</body>
+
+</html>

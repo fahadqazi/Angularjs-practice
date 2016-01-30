@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>Angular App</title>
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	
+</head>
+<body ng-init="people=[
+		{name:'fahad', city:'burnham', joined: '2004-12-02', wages:'1050'},
+
+		{name:'imran', city:'maidenhead',joined: '2030-04-02',wages:'1500' },
+
+		{name:'buggy',city:'slough', joined: '2012-08-01',wages:'1050'},
+
+		{name:'shabz', city:'burnley', joined: '1999-11-11',wages:'800'},
+
+		{name:'bee', city:'burnley', joined: '2011-08-23',wages:'750'},
+
+		{name:'ash', city:'maidenhead', joined: '1984-04-18', wages:'5000'}]">
+
+		<label>Filter</label> <input type="text" ng-model="customerFiler"/>
+
+		<div >
+			<table>
+				<tr>
+					<th ng-click="sortBy='name';reverse=!reverse">Name</th>
+					<th ng-click="sortBy='city';reverse=!reverse">City</th>
+					<th ng-click="sortBy='joined';reverse=!reverse">Joined</th>
+					<th ng-click="sortBy='wages';reverse=!reverse">Salary</th>
+				</tr>
+				<tr ng-repeat="person in people | filter: customerFiler | orderBy:sortBy:reverse">
+					<td>{{person.name}}</td>
+					<td>{{person.city | uppercase}}</td>
+					<td>{{person.joined | date}}</td>
+					<td>{{person.wages | currency}}</td>
+				</tr>
+			</table>
+		</div>
+</body>
+</html>

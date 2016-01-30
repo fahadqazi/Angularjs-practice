@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app>
+<head >
+	<title>Angular App</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+</head>
+<body ng-cloak>
+		<div ng-init="name='James'" ng-hide="isHidden">	
+			<input type="text" ng-model="name"/> {{name}}
+		</div>
+		<div>
+			{{age}}
+		</div>
+
+		<input type="checkbox" ng-model="isHidden"/>
+
+	
+		<button ng-click="name='Michele'">Submit</button>
+		<button ng-click="age='32'">Show age</button>
+		
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>Angular App</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+</head>
+<body>
+	<div ng-init="names=[
+		{name:'fahad', city:'burnham'},
+
+		{name:'imran', city:'maidenhead'},
+
+		{name:'buggy',city:'slough'},
+
+		{name:'shabz', city:'burnley'},
+
+		{name:'bee', city:'manchester'},
+
+		{name:'ash', city:'taplow'}]">
+
+		<input type="text" ng-model="nameText"/> {{nameText}}
+
+		<ul>
+			<li ng-repeat="name in names | filter:nameText |orderBy:'name' ">{{ name.name }} - {{name.city | uppercase}}</li>
+		</ul>
+
+		<table style="border:1px solid red">
+			<tr>
+				<th>Name</th>
+				<th>City</th>
+			</tr>
+			<tr ng-repeat="name in names | orderBy:'name' ">
+				<td>{{name.name}}</td>
+				<td>{{name.city}}</td>
+			</tr>
+		</table>
+	</div>
+
+
+</body>
+</html>

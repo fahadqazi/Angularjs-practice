@@ -2,42 +2,23 @@
 <html ng-app="githubViewer">
   <head>
     <title>Angular App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
     <script src="app.js"></script>
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    
   </head>
     
   <body ng-controller="mainController" class="container">
     <h1>{{message}}</h1>
       
+    {{countdown}}
     <form ng-submit="search(username)">
       <input type="search" required placeholder="github username" ng-model="username"/>
-      <input type="submit" value="search"/>
+      <input class="btn btn-default btn-success" type="submit" value="search"/>
     </form>
     
-    <div>
-      <div>{{user.name}}</div>
-      <div>{{user.location}}</div>
-      <img src={{user.avatar_url}} />
-    </div>
-        
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Star Count</th>
-          <th>Language</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="repo in repos">
-          <td>{{repo.name}}</td>
-          <td>{{repo.stargazers_count | number}}</td>
-          <td>{{repo.language}}</td>
-        </tr>
-      </tbody>
-    </table><!--table end-->
+    <div ng-include="'userdetails.html'" ng-show="user"></div>
     
         
     </body>
